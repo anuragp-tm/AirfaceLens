@@ -1,0 +1,41 @@
+   
+
+INVOICE
+
+Your Company Name INVOICE TO:
+[Street address] Company Name
+(City, State] [Street address]
+(Country] (City, State]
+[Postal] {Country]
+[Postal]
+
+Invoice Number
+#0001
+
+Date of Invoice
+2021-01-17
+
+Due Date
+2021-01-17
+
+Desc Fry | orm
+
+NOTES:
+
+TERMS AND CONDITIONS:
+
+ 
+
+SUBTOTAL 0,00
+DISCOUNT 0,00
+SUBTOTAL 0,00
+LESS
+
+DISCOUNT
+
+TAX RATE 0,00
+TAX TOTAL 0,00
+BALANCE DUE R0,00
+
+@& invoiceBerry
+

@@ -1,8 +1,11 @@
-import tensorflow_hub as hub
+
 import tensorflow as tf
-import pandas as pd
+
 import cv2
 import os
+
+import tensorflow_hub as hub
+import pandas as pd
 from configobj import ConfigObj
 
 config = ConfigObj('airface_config.ini')
@@ -10,18 +13,17 @@ imgDir=config['IMAGE_DIR']
 imgName=config['IMAGE_NAME']
 imageFile=os.path.join(imgDir,imgName)
 csvDir=config['CSV_DIR']
-
+os.environ['CUDA_VISIBLE_DEVICES'] ="-1"
 
 # read and resize to respect the input_shape
 
-width = 1028
-height = 1028
+width = 600
+height = 400
 img=cv2.imread(imageFile)
 inp = cv2.resize(img, (width , height ))
 
 #Convert img to RGB
 rgb = cv2.cvtColor(inp, cv2.COLOR_BGR2RGB)
-
 # Converting to uint 8
 rgb_tensor = tf.convert_to_tensor(rgb, dtype=tf.uint8)
 
@@ -30,11 +32,9 @@ rgb_tensor = tf.expand_dims(rgb_tensor , 0)
 
 #we can load the model and the labels
 
-import tensorflow_hub as hub
-import pandas as pd
-
 # Loading model directly from TensorFlow Hub
 detector = hub.load("https://tfhub.dev/tensorflow/efficientdet/lite2/detection/1")
+
 
 # Loading csv with labels of classes
 labels = pd.read_csv(os.path.join(csvDir,'labels.csv'), sep=';', index_col='ID')
@@ -54,7 +54,7 @@ pred_scores = scores.numpy()[0]
 for score, ( ymin,xmin,ymax,xmax), label in zip(pred_scores, pred_boxes, pred_labels):
     if score < 0.5:
         continue
-
+    print("inside for")
     score_txt = f'{100 * round(score)}%'
     img_boxes = cv2.rectangle(rgb,(xmin, ymax),(xmax, ymin),(0,255,0),2)
     font = cv2.FONT_HERSHEY_SIMPLEX
@@ -62,7 +62,7 @@ for score, ( ymin,xmin,ymax,xmax), label in zip(pred_scores, pred_boxes, pred_la
     cv2.putText(img_boxes,score_txt,(xmax, ymax-10), font, 1.5, (255,0,0), 2, cv2.LINE_AA)
     cv2.imshow("Image",img_boxes)
     cv2.waitKey(0)
-    cv2.destroyWindow()
+    cv2.destroyAllWindows()
 
 
 

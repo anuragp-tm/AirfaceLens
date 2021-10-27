@@ -45,7 +45,7 @@ for c in cnts:
 	text = "{} {}".format(color, shape)
 	cv2.drawContours(image, [c], -1, (0, 255, 0), 2)
 	cv2.putText(image, text, (cX, cY),
-		cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+		cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2)
 	# show the output image
 	cv2.imshow("Image", image)
 	cv2.waitKey(0)

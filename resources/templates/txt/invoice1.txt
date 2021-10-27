@@ -1,0 +1,43 @@
+Company Name INVOICE
+
+ 
+
+[Street Address] Date 2019-04-10
+[City, State, ZIP Code] Invoice # [FAHHH#]
+[Phone] Due Date 2019-05-10
+[Email Address]
+[Company Website]
+ERS
+[Recipient Name] [Recipient Name]
+[Company Name] [Company Name]
+[Street Address] [Street Address]
+[City, State, ZIP Code] [City, State, ZIP Code]
+[Phone] [Phone]
+Description (ols Unit Price Amount
+Product 1 2 $50.00 $100.00
+Product 2 4 $60.00 $240.00
+Labor 14 $60.00 $840.00
+
+ 
+
+ 
+
+ 
+
+Subtotal $1,180.00
+
+ 
+
+Discounts $177.00
+1, Payment due in 30 days Taxes $100.30
+2. Please note the invoice number in your payment method Total $1,163.30
+
+Banking and wire transfer information may also be included here
+
+Thank you for
+your business!
+
+ 
+
+ 
+
