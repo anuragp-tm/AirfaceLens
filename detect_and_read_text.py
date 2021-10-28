@@ -22,6 +22,7 @@ try:
         image=cv2.imread(img)
         #print(img.shape)
         # read text from the image
+        
         text=pytesseract.image_to_string(image)
         return text
 
@@ -29,17 +30,16 @@ try:
     def read_easyocr_text(img):
         text_lang=config['TEXT_LANG']
         reader = easyocr.Reader(text_lang)
-        result = reader.readtext(img, detail=0)
+        result = reader.readtext(img, detail=0,)
         return result
-    
+    textOutput=''
     if read_text_method=='pytesseract':
         textOutput=read_text_from_image(imageFile)
     elif read_text_method=='easyocr':
         textOutput='\n' .join(read_easyocr_text(imageFile))
-    #else:
-        #textOutput=''
-        #print("Unavailable option.Please choose either pytesseract or easyocr ")
-
+    else:
+        print("Invalid option.Please choose either 'pytesseract' or 'easyocr' ")
+        pass
     #textOutput=text if read_text_method=="pytesseract" else ' '.join(result)
     print(textOutput)
 except Exception as e:

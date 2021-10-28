@@ -40,5 +40,5 @@ try:
         print("PDF file created from text.")
         f.close()
 except Exception as e :
-  print("Failed to created PDF.{e}")
+  print(f"Failed to created PDF.{e}")
   
